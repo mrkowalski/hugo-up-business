@@ -46,6 +46,7 @@
             {{ partial "components/button/primary" (dict "label" .Name "href" .URL ) }}
           </li>
         {{ end }}
+        {{ partial "components/i18nswitch" . }}
       </ul>
     </div>
   </div>

@@ -1,0 +1,19 @@
+{{ if .IsTranslated }}
+  {{ range .Translations }}
+    <li>
+      <a class="bg-primary hover:bg-primary/90 rounded px-8 py-2 text-white duration-500" href="{{ .Permalink }}">
+        {{ .Language.LanguageName }}
+      </a>
+    </li>
+  {{ end }}
+{{ else }}
+  {{ range .Site.Languages }}
+    {{ if ne .Lang $.Site.Language.Lang }}
+      <li>
+        <a class="bg-primary hover:bg-primary/90 rounded px-8 py-2 text-white duration-500" href="{{ .Lang | printf "/%s/" | absURL }}">
+          {{ .LanguageName }}
+        </a>
+      </li>
+    {{ end }}
+  {{ end }}
+{{ end }}
