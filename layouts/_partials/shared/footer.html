@@ -35,9 +35,9 @@
         <h2 class="text-primary mb-2 text-center text-lg font-bold xl:text-start">{{ i18n "location" }}</h2>
         <ul class="flex flex-col gap-3 text-sm">
           {{ range .Site.Params.location }}
-            <li class="flex flex-col items-center gap-4 xl:flex-row">
+            <li class="flex flex-col items-center gap-1 xl:flex-row">
               <span class="text-primary">{{ partial "icons/geo-alt.html" }}</span>
-              <span class="text-center xl:text-start">{{ . }}</span>
+              <span class="text-center xl:text-start">{{- . | safeHTML -}}</span>
             </li>
           {{ end }}
         </ul>
