@@ -95,7 +95,12 @@ const config = {
       purposes: ['analytics'],
       required: false,
       default: true,
-      callback: (consent) => { if (consent) loadGA4(); }
+      callback: (consent) => { if (consent) loadGA4(); },
+      onAccept:  `gtag('consent', 'update', {'analytics_storage': 'granted'})`,
+      onDecline: `gtag('consent', 'update', {'analytics_storage': 'denied'})`,
+      cookies: [
+        /^_ga(_.*)?/
+      ],
     },
     {
       name: 'HubSpot',
