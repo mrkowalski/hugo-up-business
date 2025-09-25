@@ -3,25 +3,6 @@ import * as Klaro from "klaro";
 
 const siteLang = document.documentElement.lang.slice(0,2);
 
-function loadGA4() {
-  if (document.getElementById('ga4-src')) return;
-  const s = document.createElement('script');
-  s.id = 'ga4-src';
-  s.async = true;
-  s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_MEASUREMENT_ID;
-  document.head.appendChild(s);
-
-  const i = document.createElement('script');
-  i.id = 'ga4-init';
-  i.innerHTML = `
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', ${GA_MEASUREMENT_ID});
-  `;
-  document.head.appendChild(i);
-}
-
 function loadHubspot() {
   if (document.getElementById('hs-forms')) return;
   // Forms embed (loads forms API)
@@ -91,13 +72,11 @@ const config = {
   purposes: ['necessary', 'analytics', 'marketing'],
   services: [
     {
-      name: 'Google Analytics',
+      name: 'google-analytics',
+      title: "Google Analytics",
       purposes: ['analytics'],
       required: false,
       default: true,
-      callback: (consent) => { if (consent) loadGA4(); },
-      onAccept:  `gtag('consent', 'update', {'analytics_storage': 'granted'})`,
-      onDecline: `gtag('consent', 'update', {'analytics_storage': 'denied'})`,
       cookies: [
         /^_ga(_.*)?/
       ],
