@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="{{ default .Site.Language.Lang .Site.LanguageCode }}" dir="{{ default "ltr" .Site.Language.LanguageDirection }}">
   <head>
     <!-- Title -->
     {{ if .IsHome }}
@@ -95,6 +95,11 @@
       {{ end }}
     {{ end }}
 
+    <!-- JS params -->
+
+    <script>
+      GA_MEASUREMENT_ID = "{{- .Site.Params.gaMeasurementId -}}";
+    </script>
 
     <!-- Load JS -->
     {{- $main := resources.Get "js/main.js" -}}
@@ -106,11 +111,12 @@
       <script src="{{ $main.RelPermalink }}" defer></script>
     {{ end }}
   </head>
-  <body class="">
+  <body dir="{{ default "ltr" .Site.Language.LanguageDirection }}" class="">
     <div class="flex min-h-screen flex-col">
       {{ partial "shared/header" . }}
       <div class="grow">{{ block "main" . }}{{ end }}</div>
       {{ partial "shared/footer" . }}
     </div>
+    <div id="klaro"></div>
   </body>
 </html>
