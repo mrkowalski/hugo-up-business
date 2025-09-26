@@ -2,7 +2,7 @@
   <div class="container mx-auto px-4">
     <div class="mb-8 grid gap-8 xl:grid-cols-12">
       <div class="flex flex-col items-center gap-4 xl:col-span-4 xl:items-start">
-        <a class="flex items-center" href="{{ site.BaseURL }}">
+        <a class="flex items-center" href="{{- site.BaseURL | absLangURL -}}">
           <span class="text-primary text-xl font-semibold uppercase xl:text-3xl">{{ site.Title }}</span>
         </a>
         <p class="text-center text-sm xl:text-start">{{ site.Params.description }}</p>
