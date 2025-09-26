@@ -1,6 +1,6 @@
 <nav class="">
   <div class="container mx-auto flex items-center justify-between px-4 py-6">
-    <a class="flex items-center" href="{{- .Site.BaseURL | absLangURL -}}">
+    <a class="flex items-center" href="{{ "/" | relLangURL }}">
       {{ partial "utilities/image.html" (dict "src" "images/logo.png" "class" "size-6 xl:size-8") }}
       <span class="text-primary text-xl font-semibold uppercase xl:text-3xl">{{ .Site.Title }}</span>
     </a>
@@ -19,7 +19,7 @@
       id="navbarContent"
     >
       <div class="container absolute top-0 mx-auto flex items-center justify-between px-4 py-6 xl:hidden">
-        <a class="flex items-center xl:hidden" href="{{- .Site.BaseURL | absLangURL -}}">
+        <a class="flex items-center xl:hidden" href="{{ "/" | relLangURL }}">
           {{ partial "utilities/image.html" (dict "src" "images/logo.png" "class" "size-6 xl:size-8") }}
           <span class="text-primary text-xl font-semibold uppercase xl:text-3xl">{{ .Site.Title }}</span>
         </a>
