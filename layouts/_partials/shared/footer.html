@@ -26,7 +26,7 @@
         <ul class="flex flex-col gap-1 text-sm">
           {{ range .Site.Menus.footer }}
             <li class="text-center xl:text-start">
-              <a class="" href="{{ .URL }}">{{- T .Name -}}</a>
+              <a class="" href="{{- absLangUrl .URL -}}">{{- T .Name -}}</a>
             </li>
           {{ end }}
         </ul>
