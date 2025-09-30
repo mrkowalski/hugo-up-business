@@ -4,7 +4,7 @@
       <h1 class="text-primary mb-8 text-center text-6xl font-bold">{{- T . -}}</h1>
     {{ end }}
     {{ with .text }}
-      <p class="mx-auto mb-16 text-center xl:max-w-[50%]">{{ . }}</p>
+      <p class="mx-auto mb-16 text-center xl:max-w-[50%]">{{ T . }}</p>
     {{ end }}
     {{ if .cards }}
       <div class="grid gap-12 xl:grid-cols-3">
@@ -13,7 +13,7 @@
             {{ with .image }}{{ partial "utilities/image" (dict "src" .) }}{{ end }}
             <div class="flex flex-col items-center justify-center">
               {{ with .title }}<h2 class="text-primary mb-4 text-center text-2xl capitalize">{{- T . -}}</h2>{{ end }}
-              {{ with .text }}<p class="mb-8 text-center">{{ . }}</p>{{ end }}
+              {{ with .text }}<p class="mb-8 text-center">{{- . | i18n | markdownify -}}</p>{{ end }}
               {{ with .button }}
                 {{ partial "components/button/outline" (dict "label" .label "href" .link) }}
               {{ end }}
