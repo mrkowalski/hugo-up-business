@@ -38,5 +38,5 @@
   {{ with $srcset }}srcset="{{ . }}"{{ end }}
   {{ with .sizes }}sizes="{{ . }}"{{ end }}
   {{ with .class }}class="{{ . }}"{{ end }}
-  alt="{{ . }}"
+  {{ with .alt }}alt="{{ . }}"{{ end }}
 />
