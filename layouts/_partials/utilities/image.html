@@ -1,4 +1,3 @@
-{{/* Check for required arguments (src): */}}
 {{ if not .src }}
   {{ errorf "Image Optimization: the partial 'utilities/image' is missing the 'src' argument." }}
 {{ end }}
@@ -30,7 +29,6 @@
 {{ end }}
 {{ $srcset = delimit $srcset ", " }}
 
-{{/* Return the img element: */}}
 <img
   {{ with $resource.Permalink }}src="{{ . }}"{{ end }}
   {{ with $resource.Width }}width="{{ . }}"{{ end }}
